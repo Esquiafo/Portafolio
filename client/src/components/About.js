@@ -16,7 +16,6 @@ import EmailIcon from '@mui/icons-material/Email';
 import WorkIcon from '@mui/icons-material/Work';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import HomeIcon from '@mui/icons-material/Home';
-
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -33,8 +32,6 @@ const Item = styled(Paper)(({ theme }) => ({
     }));
 
 export default function Test() {
-
-
   return (
     <div style={{
     
@@ -46,7 +43,7 @@ export default function Test() {
        <Zoom>    
     
     <Container>
-      <Grid style={{height: '100%', justifyContent: 'center'}} container xs={12}>
+      <Grid style={{height: '100%', justifyContent: 'center'}} container >
         <Grid item xs={12}> <h1 style={{color:'white', textAlign: 'center'}}>About</h1></Grid>
         <Grid item xs={12} md={3}>
         <Box style={{
@@ -58,17 +55,17 @@ export default function Test() {
                  alignItems: 'center'}} >
          
             
-             <Box 
+            <Box 
              style={{
               padding: '10px',
                  justifyContent: 'center',
-                 height: '35vh',
+                 
            }} 
              direction="row" spacing={2}>
-               <Avatar style={{height: '100%',width: '100%'}} alt="Remy Sharp" src="https://media-exp1.licdn.com/dms/image/C4E03AQE7YWI-gjFsEw/profile-displayphoto-shrink_800_800/0/1579725105565?e=1659571200&v=beta&t=Er0PRFi7mk85upoTGVDfDaytqcd4r0wpS6gYYRRERZQ" />
+               <Avatar style={{width: '100%', height: '100%'}} alt="Remy Sharp" src="https://media-exp1.licdn.com/dms/image/C4E03AQE7YWI-gjFsEw/profile-displayphoto-shrink_800_800/0/1579725105565?e=1659571200&v=beta&t=Er0PRFi7mk85upoTGVDfDaytqcd4r0wpS6gYYRRERZQ" />
              </Box>
          
-                   </Box>
+            </Box>
     </Grid>
         <Grid item xs={12} md={6}>
             <Box  style={{height: '100%',textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center',backgroundColor: 'white'}}>

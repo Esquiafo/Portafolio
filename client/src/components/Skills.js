@@ -145,8 +145,8 @@ export default function Skills(){
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                
-                            }} xs={12} sm={12} md={6}>
-                                <Grid xs={12} sm={12} md={6}  style={{
+                            }} item xs={12} sm={12} md={6}>
+                                <Grid item xs={12} sm={12} md={6}  style={{
                                 display: 'flex',
                                 justifyContent: 'center',
                                 alignItems: 'center',
@@ -161,7 +161,7 @@ export default function Skills(){
                                 emptyIcon={<StarIcon style={{ opacity: 1 }} fontSize="inherit" />}
                               />
                             </Grid>
-                           <Grid xs={12} sm={12} md={6}>
+                           <Grid item xs={12} sm={12} md={6}>
                            <Container style={{
                                 display: 'flex',
                                 justifyContent: 'center',

@@ -105,7 +105,7 @@ export default function Contact(){
                     
                     {redes.map((data, index) => (
                        
-                       <Grid xs={4} key={index} spacing={2}>
+                       <Grid item xs={4} key={index} >
                     
 
                         
@@ -131,7 +131,7 @@ export default function Contact(){
                 </Grid>    
             </Grid>
             <Grid item xs={12} md={6}>  <Grid container spacing={2}>
-        <Grid style={{ padding: '20px'}}xs={12} md={6} >
+        <Grid style={{ padding: '20px'}} item xs={12} md={6} >
         <Grid  item xs={12}>
         <TextField
           style={{width: '100%'}}
@@ -166,7 +166,7 @@ export default function Contact(){
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 width:'100%'
-                            }} xs={12}md={6} >
+                            }} item xs={12}md={6} >
       <Grid
      item xs={12}
   container
