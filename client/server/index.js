@@ -6,15 +6,15 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, "../build")));
   
-app.get('/Portafolio/', (req, res) => {
+app.get('/home', (req, res) => {
 res.sendFile(path.join(__dirname, '../build', 'index.html'))
 });
-// app.get('/tes/test', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../build', 'index.html'))
-// });
+app.get('/tes/test', (req, res) => {
+  res.sendFile(path.join(__dirname, '../build', 'index.html'))
+});
 
 
-app.get('/Portafolio/api', (req,res) =>{
+app.get('/api', (req,res) =>{
    res.json('hi')
 });
 

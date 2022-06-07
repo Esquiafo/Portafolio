@@ -5,7 +5,6 @@ import Courses from "../components/Courses";
 import Grid from '@mui/material/Grid';
 import Work from "../components/Work";
 import Contact from "../components/Contact";
-import MyComponent from 'react-full-page-scroller'
 import './Home.css';
 
 export default function Home(){
