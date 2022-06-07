@@ -14,7 +14,7 @@ res.sendFile(path.join(__dirname, '../build', 'index.html'))
 // });
 
 
-app.get('/api', (req,res) =>{
+app.get('/portfolio/api', (req,res) =>{
    res.json('hi')
 });
 
