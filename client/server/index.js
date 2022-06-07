@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, "../build")));
   
-app.get('/', (req, res) => {
+app.get('/Portafolio/', (req, res) => {
 res.sendFile(path.join(__dirname, '../build', 'index.html'))
 });
 // app.get('/tes/test', (req, res) => {
@@ -14,7 +14,7 @@ res.sendFile(path.join(__dirname, '../build', 'index.html'))
 // });
 
 
-app.get('/portfolio/api', (req,res) =>{
+app.get('/Portafolio/api', (req,res) =>{
    res.json('hi')
 });
 
