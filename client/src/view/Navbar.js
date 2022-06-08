@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -11,7 +12,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
+import Grid from '@mui/material/Grid';
 import AdbIcon from '@mui/icons-material/Adb';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
@@ -67,8 +68,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 const Navbar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -91,9 +92,8 @@ const Navbar = () => {
       opacity: '1',
     
     }} position="sticky">
-      <Container  maxWidth="md">
-        <Toolbar disableGutters>
-
+        <Grid container>
+          <Grid item xs={4}>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -125,39 +125,51 @@ const Navbar = () => {
             >
 
                 <MenuItem onClick={handleCloseNavMenu}>
+                  <Link to='/'>
                   <Typography textAlign="center">Home</Typography>
+                  </Link>
                 </MenuItem>
                 <MenuItem onClick={handleCloseNavMenu}>
+                <Link to='projects'>
                   <Typography textAlign="center">Projects</Typography>
+                  </Link>
                 </MenuItem>
 
 
             </Menu>
           </Box>
-
+          </Grid>
+          <Grid item xs={4}>
           <Box style={{justifyContent: 'space-evenly'}} sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
           
           <Stack spacing={5} direction="row">
           <ThemeProvider theme={theme}>
    
 
-
-        <Typography  style={{
+        <Link to='/'> 
+          <Button  style={{
             color: 'white',  
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center'}} 
-            variant="h5">Home</Typography>
-        <Typography  style={{
+            variant="h5">
+              Home
+          </Button>
+        </Link>
+        <Link to='/projects'>
+        <Button  style={{
             color: 'white',  
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center'}} 
-            variant="h5">Projects</Typography>
+            variant="h5">
+              Projects
+          </Button>
+        </Link>
       </ThemeProvider>
         </Stack>
-          </Box>
-
+          </Box></Grid>
+          <Grid item xs={4}>
           <Box sx={{ flexGrow: 0 }}>
           <Search>
             <SearchIconWrapper>
@@ -187,8 +199,9 @@ const Navbar = () => {
               
             </Menu>
           </Box>
-        </Toolbar>
-      </Container>
+          </Grid>
+        </Grid>
+       
     </AppBar>
   );
 };

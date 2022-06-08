@@ -1,19 +1,12 @@
 import * as React from 'react';
-import { styled, useTheme} from '@mui/material/styles';
 import Container from '@mui/material/Container';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
-import Fade from 'react-reveal/Fade';
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
-
+import Zoom from 'react-reveal/Zoom';
 const labels = {
     0: 'No experience',
   0.5: 'Bad ',
@@ -27,13 +20,6 @@ const labels = {
   4.5: 'Great',
   5: 'Excellent',
 };
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
 
 const skilled =[{
     name: 'HTML',
@@ -98,13 +84,7 @@ const skilled =[{
     }
     
 ]
-const Div = styled('div')(({ theme }) => ({
-    ...theme.typography.button,
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(1),
-  }));
 export default function Skills(){
-    const theme = useTheme();
     return (
         <div style={{
             width: '100%',
@@ -115,7 +95,7 @@ export default function Skills(){
             
     
             <Container>
-            <Fade>  
+            <Zoom>  
                 <Grid style={{justifyContent: 'center'}}   container spacing={2}>
                 <Grid item xs={12}> <h1 style={{color:'white', textAlign: 'center'}}>Skills</h1></Grid>
                     {skilled.map((skill, index) => (
@@ -177,7 +157,7 @@ export default function Skills(){
                     ))}
                     
                 </Grid>
-                </Fade>
+                </Zoom>
             </Container>
          
         </div>

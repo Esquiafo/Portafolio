@@ -1,23 +1,12 @@
 import * as React from 'react';
-import {Link} from 'react-router-dom';
-import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Avatar from '@mui/material/Avatar';
 import Card from '@mui/material/Card';
-import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 import Fade from 'react-reveal/Fade';
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
 const estudios = [
     {
         nombre: 'Software Engineer',

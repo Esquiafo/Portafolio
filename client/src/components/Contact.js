@@ -1,33 +1,12 @@
-import * as React from 'react';
-import {Link} from 'react-router-dom';
-import { styled } from '@mui/material/styles';
+import React, {useState, useEffect} from 'react';
 import Container from '@mui/material/Container';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import Avatar from '@mui/material/Avatar';
-import Card from '@mui/material/Card';
-import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
-import Fade from 'react-reveal/Fade';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import FormControl from '@mui/material/FormControl';
-import FormHelperText from '@mui/material/FormHelperText';
-import Input from '@mui/material/Input';
-import InputLabel from '@mui/material/InputLabel';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
-
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
+import axios from 'axios'
 const redes=[
     {
 
@@ -61,11 +40,37 @@ const redes=[
     },
 ]
 export default function Contact(){
-    const [name, setName] = React.useState('Composed TextField');
-
-    const handleChange = (event) => {
+    const [name, setName] = useState('');
+    const handleChangeName = (event) => {
       setName(event.target.value);
     };
+    const [phone, setPhone] = useState('');
+    const handleChangePhone = (event) => {
+      setPhone(event.target.value);
+    };
+    const [email, setEmail] = useState('');
+    const handleChangeEmail = (event) => {
+      setEmail(event.target.value);
+    };
+    const [message, setMessage] = useState('');
+    const handleChangeMessage = (event) => {
+      setMessage(event.target.value);
+    };
+    let validEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/g.test(email)
+    let validName = /^([a-zA-Z]{2,}\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)/.test(name)
+    let validPhone = /\b(?:\d[ ]*?){6,}\b/.test(phone)
+    const sendEmail = () => {
+      axios
+      .post(`${window.location.href}api/email`, {
+        name,
+        email,
+        phone,
+        message
+      })
+      .then(response => response.status)
+      .catch(err => console.warn(err));
+    
+    }
     return (
         <div style={{
             marginTop: '5vh',
@@ -133,31 +138,73 @@ export default function Contact(){
             <Grid item xs={12} md={6}>  <Grid container spacing={2}>
         <Grid style={{ padding: '20px'}} item xs={12} md={6} >
         <Grid  item xs={12}>
-        <TextField
+        {validName ? (
+          <TextField
           style={{width: '100%'}}
           required
-          id="outlined-required"
-          label="Name"
           
-        />
-        </Grid>
-        <Grid item xs={12}>
-        <TextField
-          style={{width: '100%'}}
-          required
-          id="outlined-required"
-          label="Email"
-        
-        />
-        </Grid>
-        <Grid item xs={12}>
-        <TextField
-            style={{width: '100%'}}
-          required
-          id="outlined-required"
-          label="Cellphone"
+          id="outlined-required red"
+          label="Name"
+          onChange={handleChangeName}
          
         />
+        ): 
+          <TextField
+          style={{width: '100%'}}
+          required
+          error
+          id="outlined-required red"
+          label="Name"
+          onChange={handleChangeName}
+         
+        />
+        }
+        </Grid>
+        <Grid item xs={12}>
+        {validEmail ? (
+          <TextField
+          style={{width: '100%'}}
+          required
+          
+          id="outlined-required red"
+          label="Email"
+          onChange={handleChangeEmail}
+         
+        />
+        ): 
+          <TextField
+          style={{width: '100%'}}
+          required
+          error
+          id="outlined-required red"
+          label="Email"
+          onChange={handleChangeEmail}
+         
+        />
+        }
+        </Grid>
+        <Grid item xs={12}>
+        {validPhone ? (
+          <TextField
+          style={{width: '100%'}}
+          required
+          
+          id="outlined-required red"
+          label="Phone"
+          onChange={handleChangePhone}
+         
+        />
+        ): 
+          <TextField
+          style={{width: '100%'}}
+          required
+          error
+          id="outlined-required red"
+          label="Phone"
+          onChange={handleChangePhone}
+         
+        />
+        }
         </Grid>
       </Grid>
       
@@ -168,6 +215,7 @@ export default function Contact(){
                                 width:'100%'
                             }} item xs={12}md={6} >
       <Grid
+      style={{paddingBottom: '20px'}}
      item xs={12}
   container
   direction="column"
@@ -175,12 +223,12 @@ export default function Contact(){
   alignItems="center"
 >
         <TextareaAutosize
-
+      onChange={handleChangeMessage}
       aria-label="empty textarea"
       placeholder=""
       style={{ height: '150px', width: '80%' }}
     />
-    <Button style={{marginTop: '1vh', marginBottom: '1vh', width: '250px'}} variant="outlined">Send</Button>
+    {validName=='' || validPhone=='' || validEmail=='' || message=='' ? <Button disabled >Send</Button> : <Button style={{backgroundColor: 'black', color: 'white', marginTop: '10px', width: '80%'}} onClick={sendEmail}>Send</Button>}
           </Grid>
           </Grid>
         </Grid></Grid>

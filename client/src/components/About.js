@@ -1,14 +1,11 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
 import Zoom from 'react-reveal/Zoom';
 import List from '@mui/material/List';
-import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
+import Box from '@mui/material/Box';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
@@ -16,31 +13,14 @@ import EmailIcon from '@mui/icons-material/Email';
 import WorkIcon from '@mui/icons-material/Work';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import HomeIcon from '@mui/icons-material/Home';
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));
-  
-  
-  const Div = styled('div')(({ theme }) => ({
-      ...theme.typography.button,
-      backgroundColor: theme.palette.background.paper,
-      padding: theme.spacing(1),
-    }));
 
 export default function Test() {
   return (
     <div style={{
-    
-       
-       
       justifyContent: 'center',
       alignItems: 'center'
   }}>
-       <Zoom>    
+    <Zoom>    
     
     <Container>
       <Grid style={{height: '100%', justifyContent: 'center'}} container >
@@ -69,7 +49,8 @@ export default function Test() {
     </Grid>
         <Grid item xs={12} md={6}>
             <Box  style={{height: '100%',textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center',backgroundColor: 'white'}}>
-              John Sullivan is a Human Resources specialist with a decade of successful experience in hiring and employee management. John specializes in Human Resource technologies and regularly attends national training sessions to showcase new HR tech trends, such as self-service, wellness apps, and people analytics tools. A strong believer in the power of positive thinking in the workplace, John regularly develops internal wellness campaigns to assist employees with effective mental health techniques. John enjoys a good Netflix binge but can also be found on long bike rides on hilly country roads.
+            <Card style={{marginRight: '10px',marginLeft: '10px'}}>I consider myself a funny, responsible and reckles. Being this last quality extremely important when it comes to programming. I am really interested in videogames, metaverse and the crypto world, including mining.  I believe every workspace should have partnership and respect. I have the capacity to learn and understand quickly to overcome possible adversities.
+           </Card>  
             </Box> 
         </Grid>
         <Grid item xs={12} md={3} style={{
@@ -106,7 +87,7 @@ export default function Test() {
             <LocalPhoneIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText style={{overflowWrap: 'break-word'}} primary="Cellphone" secondary="+5491155883168" />
+        <ListItemText style={{overflowWrap: 'break-word'}} primary="Phone" secondary="+5491155883168" />
       </ListItem>
     </List></Grid>
       </Grid>

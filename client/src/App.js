@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom"
 import Home from "./view/Home"
-import About from './components/About'
+import Projects from './view/Projects'
 import Navbar from "./view/Navbar"
 
 function App() {
@@ -9,6 +9,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route exact path="/" element={ <Home/> } />
+        <Route exact path="/projects" element={ <Projects/> } />
       </Routes>
     </div>
   )
