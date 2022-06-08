@@ -1,11 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import Container from '@mui/material/Container';
+import {Link} from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 import axios from 'axios'
 const redes=[
     {
@@ -40,6 +46,13 @@ const redes=[
     },
 ]
 export default function Contact(){
+  const [open, setOpen] = useState(false);
+
+
+  const handleClose = () => {
+    setOpen(false);
+    window.location.reload()
+  };
     const [name, setName] = useState('');
     const handleChangeName = (event) => {
       setName(event.target.value);
@@ -60,6 +73,7 @@ export default function Contact(){
     let validName = /^([a-zA-Z]{2,}\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)/.test(name)
     let validPhone = /\b(?:\d[ ]*?){6,}\b/.test(phone)
     const sendEmail = () => {
+
       axios
       .post(`${window.location.href}api/email`, {
         name,
@@ -69,7 +83,7 @@ export default function Contact(){
       })
       .then(response => response.status)
       .catch(err => console.warn(err));
-    
+          setOpen(true);
     }
     return (
         <div style={{
@@ -237,7 +251,27 @@ export default function Contact(){
        
      
           
+        <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+          Your message was sent correctly.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+  
+          <Button onClick={handleClose} autoFocus>
+            Continue
+          </Button>
        
+        </DialogActions>
+      </Dialog>
 
       
             
