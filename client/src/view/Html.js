@@ -4,22 +4,14 @@ import Skills from "../components/Skills";
 import Courses from "../components/Courses";
 import Contact from "../components/Contact";
 import './Background.css'
-export default function Home(){
+export default function Html(){
     return (
         
         <div className="color" style={{overflowX: 'hidden', overflowY: 'auto'}}>
           
         
       
-  
-    <About />
-
-    <Skills />
-
-    <Courses />
-
-    <Contact />
-
+<h1> HTML </h1>
 
           
         </div>
